@@ -9,7 +9,7 @@ function increaseVolume(value){
 	let audioCtx = new AudioContext();
 	let source = audioCtx.createMediaElementSource(mVideoElement);
 	let gainNode = audioCtx.createGain();
-	gainNode.gain.value = value;
+	gainNode.gain.value += value;
 	source.connect(gainNode);
 	gainNode.connect(audioCtx.destination);
 }

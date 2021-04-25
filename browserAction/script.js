@@ -17,10 +17,11 @@ async function setValue(value){
 
 async function init(){
 	let value = browser.storage.local.get("value");
-	if(!value){
-		value = 0;
-	}
 	value.then((value)=>{
+		if(!value.value){
+			value.value = 0;
+			console.log("here");
+		}
 		sliderNode.value = value.value;
 		setValue(value.value);
 
@@ -29,14 +30,3 @@ async function init(){
 	// setValue(value);
 }
 init().catch(e=> console.error(e));
-
-
-// async function volumeAmplifier(value){
-// 	let mVideoElement = document.querySelector('video');
-// 	let audioCtx = new AudioCtx();
-// 	let source = audioCtx.createMediaElementSource(mVideoElement);
-// 	let gainNode = audioCtx.createGain();
-// 	gainNode.gain.value = value;
-// 	source.connect(gainNode);
-// 	gainNode.connect(audioCtx.destination);
-// }
