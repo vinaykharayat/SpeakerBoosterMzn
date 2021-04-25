@@ -12,8 +12,8 @@
 
   "content_scripts": [
     {
-      "matches": ["*://*/*"],
-      "js": ["main.js"]
+      "matches": ["<all_urls>"],
+      "js": ["content_script.js"]
     }
   ],
   "browser_action": {
@@ -24,7 +24,7 @@
     "default_title": "Speaker Booster"
   },
 
-  "permissions":{
+  "permissions":[
     "storage"
-  }
+  ]
 }
