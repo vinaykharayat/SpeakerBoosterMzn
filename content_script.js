@@ -3,13 +3,13 @@ browser.storage.onChanged.addListener((changes, area) =>{
 		increaseVolume(changes.value.newValue);
 	}
 });
+let mVideoElement = document.querySelector('video');
+let audioCtx = new AudioContext();
+let source = audioCtx.createMediaElementSource(mVideoElement);
+let gainNode = audioCtx.createGain();
+
 function increaseVolume(value){
-	let mVideoElement = document.querySelector('video');
-	// window.alert(mVideoElement);
-	let audioCtx = new AudioContext();
-	let source = audioCtx.createMediaElementSource(mVideoElement);
-	let gainNode = audioCtx.createGain();
-	gainNode.gain.value += value;
+	gainNode.gain.value = value;
 	source.connect(gainNode);
 	gainNode.connect(audioCtx.destination);
 }
