@@ -5,7 +5,8 @@ browser.storage.onChanged.addListener((changes, area) =>{
 });
 function increaseVolume(value){
 	let mVideoElement = document.querySelector('video');
-	let audioCtx = new AudioCtx();
+	// window.alert(mVideoElement);
+	let audioCtx = new AudioContext();
 	let source = audioCtx.createMediaElementSource(mVideoElement);
 	let gainNode = audioCtx.createGain();
 	gainNode.gain.value = value;
