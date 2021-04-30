@@ -15,7 +15,7 @@ browser.storage.onChanged.addListener((changes, area) => {
 
 function increaseVolume(value) {
     if (value === undefined) {
-        gainNode.gain.value = 0;
+        gainNode.gain.value = 1;
     } else {
         gainNode.gain.value = value;
     }
@@ -27,6 +27,8 @@ function increaseVolume(value) {
 function speakerBoosterStatus(status) {
     if (status === false) {
         gainNode.gain.value = 1;
+        source.connect(gainNode);
+        gainNode.connect(audioCtx.destination);
     } else {
         browser.storage.local.get('value').then(result => increaseVolume(result.value));
     }
