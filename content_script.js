@@ -26,7 +26,7 @@ function increaseVolume(value) {
 
 function speakerBoosterStatus(status) {
     if (status === false) {
-        gainNode.gain.value = 0;
+        gainNode.gain.value = 1;
     } else {
         browser.storage.local.get('value').then(result => increaseVolume(result.value));
     }
