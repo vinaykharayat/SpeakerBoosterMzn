@@ -3,8 +3,20 @@ let body = document.querySelector("body");
 let volumneValue = document.getElementById("volumePercentage");
 let mVideoElement = document.querySelector('video');
 let mEnableSpeakerBooster = document.querySelector("#enableSpeakerBooster");
+let mVolumeDownButton = document.querySelector("#lowVolume");
+let mVolumeUpButton = document.querySelector("#highVolume");
 
 volumneValue.innerText = sliderNode.value + "%";
+console.log(mVolumeDownButton);
+mVolumeUpButton.addEventListener("click", (e) => {
+    sliderNode.value++;
+    setValue(sliderNode.value);
+});
+
+mVolumeDownButton.addEventListener("click", (e) => {
+    sliderNode.value--;
+    setValue(sliderNode.value);
+});
 
 sliderNode.addEventListener("change", e => setValue(e.target.value));
 mEnableSpeakerBooster.addEventListener("change", e => setStatus(e.target.checked));
