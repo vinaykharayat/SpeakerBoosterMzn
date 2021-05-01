@@ -10,7 +10,8 @@
 
 body {
     width: 320px;
-    height: 360px;
+    height: 200px;
+    background: #EAEAEA;
 }
 
 #logo {

@@ -7,7 +7,7 @@ let mVolumeDownButton = document.querySelector("#lowVolume");
 let mVolumeUpButton = document.querySelector("#highVolume");
 let mLogo = document.querySelector("#logo");
 
-volumneValue.innerText = sliderNode.value + "%";
+volumneValue.innerText = sliderNode.value * 10 + "%";
 console.log(mVolumeDownButton);
 mVolumeUpButton.addEventListener("click", (e) => {
     let statusValue = browser.storage.local.get("status");
