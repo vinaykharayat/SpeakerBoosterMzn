@@ -77,9 +77,9 @@ body {
 
 #volumeSlider {
     position: absolute;
-    width: 220px;
+    width: 180px;
     height: 1px;
-    left: 78px;
+    left: 90px;
     top: 166px;
 }
 
@@ -148,4 +148,20 @@ input:checked+.slider:before {
 
 .slider.round:before {
     border-radius: 50%;
+}
+
+#lowVolume {
+    position: absolute;
+    width: 16px;
+    height: 16px;
+    left: 66px;
+    top: 160px;
+}
+
+#highVolume {
+    position: absolute;
+    width: 16px;
+    height: 16px;
+    left: 276px;
+    top: 160px;
 }
