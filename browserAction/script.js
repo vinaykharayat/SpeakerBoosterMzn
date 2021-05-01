@@ -5,17 +5,30 @@ let mVideoElement = document.querySelector('video');
 let mEnableSpeakerBooster = document.querySelector("#enableSpeakerBooster");
 let mVolumeDownButton = document.querySelector("#lowVolume");
 let mVolumeUpButton = document.querySelector("#highVolume");
+let mLogo = document.querySelector("#logo");
 
 volumneValue.innerText = sliderNode.value + "%";
 console.log(mVolumeDownButton);
 mVolumeUpButton.addEventListener("click", (e) => {
-    sliderNode.value++;
-    setValue(sliderNode.value);
+    let statusValue = browser.storage.local.get("status");
+    statusValue.then((value) => {
+        mEnableSpeakerBooster.checked = value.status;
+    });
+    if (mEnableSpeakerBooster.checked) {
+        sliderNode.value++;
+        setValue(sliderNode.value);
+    }
 });
 
 mVolumeDownButton.addEventListener("click", (e) => {
-    sliderNode.value--;
-    setValue(sliderNode.value);
+    let statusValue = browser.storage.local.get("status");
+    statusValue.then((value) => {
+        mEnableSpeakerBooster.checked = value.status;
+    });
+    if (mEnableSpeakerBooster.checked) {
+        sliderNode.value--;
+        setValue(sliderNode.value);
+    }
 });
 
 sliderNode.addEventListener("change", e => setValue(e.target.value));
@@ -42,6 +55,7 @@ async function setValue(value) {
     value1.then((value) => {
         volumneValue.innerText = value.value * 10 + "%";
     });
+    mLogo.style.animation = "shake 0.5s 1";
 }
 
 async function init() {
