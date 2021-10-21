@@ -29,6 +29,7 @@ function speakerBoosterStatus(status) {
         gainNode.gain.value = 1;
         source.connect(gainNode);
         gainNode.connect(audioCtx.destination);
+        window.location.reload();
     } else {
         browser.storage.local.get('value').then(result => increaseVolume(result.value));
     }

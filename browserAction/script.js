@@ -44,7 +44,6 @@ async function setStatus(status) {
         sliderNode.disabled = true;
     } else {
         sliderNode.disabled = false;
-
     }
 }
 
